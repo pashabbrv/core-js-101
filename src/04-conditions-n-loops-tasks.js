@@ -1,3 +1,8 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
+/* eslint-disable max-len */
+
 /**
  * Returns the 'Fizz','Buzz' or an original number using the following rules.
  */
@@ -35,10 +40,10 @@ function isTriangle(a, b, c) {
  * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
  */
 function doRectanglesOverlap(rect1, rect2) {
-  return !(rect1.left + rect1.width < rect2.left ||
-           rect2.left + rect2.width < rect1.left ||
-           rect1.top + rect1.height < rect2.top ||
-           rect2.top + rect2.height < rect1.top);
+  return !(rect1.left + rect1.width < rect2.left
+           || rect2.left + rect2.width < rect1.left
+           || rect1.top + rect1.height < rect2.top
+           || rect2.top + rect2.height < rect1.top);
 }
 
 /**
@@ -93,7 +98,7 @@ function reverseInteger(num) {
  * Validates the CCN (credit card number) using Luhn's algorithm.
  */
 function isCreditCardNumber(ccn) {
-  const digits = ('' + ccn).split('').reverse().map(Number);
+  const digits = (`${ccn}`).split('').reverse().map(Number);
   const checksum = digits.reduce((sum, digit, index) => {
     if (index % 2 !== 0) {
       digit *= 2;
@@ -116,7 +121,9 @@ function getDigitalRoot(num) {
  */
 function isBracketsBalanced(str) {
   const stack = [];
-  const brackets = { '(': ')', '{': '}', '[': ']', '<': '>' };
+  const brackets = {
+    '(': ')', '{': '}', '[': ']', '<': '>',
+  };
   for (const char of str) {
     if (brackets[char]) stack.push(brackets[char]);
     else if (Object.values(brackets).includes(char)) {
@@ -138,12 +145,12 @@ function toNaryString(num, n) {
  */
 function getCommonDirectoryPath(pathes) {
   if (pathes.length === 0) return '';
-  const splitPaths = pathes.map(path => path.split('/'));
+  const splitPaths = pathes.map((path) => path.split('/'));
   let commonPath = '';
   for (let i = 0; i < splitPaths[0].length; i++) {
     const currentPart = splitPaths[0][i];
-    if (splitPaths.every(path => path[i] === currentPart)) {
-      commonPath += currentPart + '/';
+    if (splitPaths.every((path) => path[i] === currentPart)) {
+      commonPath += `${currentPart}/`;
     } else {
       break;
     }
@@ -155,9 +162,7 @@ function getCommonDirectoryPath(pathes) {
  * Returns the product of two specified matrices.
  */
 function getMatrixProduct(m1, m2) {
-  return m1.map(row => m2[0].map((_, colIndex) =>
-    row.reduce((sum, elem, rowIndex) => sum + elem * m2[rowIndex][colIndex], 0)
-  ));
+  return m1.map((row) => m2[0].map((_, colIndex) => row.reduce((sum, elem, rowIndex) => sum + elem * m2[rowIndex][colIndex], 0)));
 }
 
 /**
@@ -177,7 +182,7 @@ function evaluateTicTacToePosition(position) {
     [position[0][0], position[1][1], position[2][2]],
     [position[0][2], position[1][1], position[2][0]],
   ];
-  
+
   for (const line of lines) {
     if (line[0] && line[0] === line[1] && line[1] === line[2]) {
       return line[0];

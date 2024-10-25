@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable no-shadow */
+
 /**
  * Returns an index of the specified element in array or -1 if element is not found
  */
@@ -13,7 +16,6 @@ function generateOdds(len) {
 }
 
 /**
- * Returns the doubled array - elements of the specified array are repeated twice using original order
  */
 function doubleArray(arr) {
   return arr.concat(arr);
@@ -133,8 +135,8 @@ function getPositivesCount(arr) {
  */
 function sortDigitNamesByNumericOrder(arr) {
   const digitNames = [
-    'zero', 'one', 'two', 'three', 'four', 'five', 
-    'six', 'seven', 'eight', 'nine'
+    'zero', 'one', 'two', 'three', 'four', 'five',
+    'six', 'seven', 'eight', 'nine',
   ];
   return arr.slice().sort((a, b) => digitNames.indexOf(a) - digitNames.indexOf(b));
 }
@@ -168,7 +170,6 @@ function toStringList(arr) {
 }
 
 /**
- * Sorts the specified array by country name first and city name (if countries are equal) in ascending order.
  */
 function sortCitiesArray(arr) {
   return arr.slice().sort((a, b) => {
@@ -183,9 +184,7 @@ function sortCitiesArray(arr) {
  * Creates an identity matrix of the specified size.
  */
 function getIdentityMatrix(n) {
-  return Array.from({ length: n }, (_, i) => 
-    Array.from({ length: n }, (_, j) => (i === j ? 1 : 0))
-  );
+  return Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => (i === j ? 1 : 0)));
 }
 
 /**

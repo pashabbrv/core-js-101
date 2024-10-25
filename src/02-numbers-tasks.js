@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+
 /**
  * Returns an area of a rectangle given by width and height.
  */
@@ -72,9 +74,6 @@ function roundToPowerOfTen(num, pow) {
   return Math.round(num / factor) * factor;
 }
 
-/**
- * Returns true if the number is prime; otherwise false.
- */
 function isPrime(n) {
   if (n < 2) return false;
   for (let i = 2; i <= Math.sqrt(n); i++) {
@@ -89,7 +88,7 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
   const result = Number(value);
-  return isNaN(result) ? def : result;
+  return Number.isNaN(result) ? def : result; // Используем Number.isNaN
 }
 
 module.exports = {
