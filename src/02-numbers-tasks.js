@@ -18,7 +18,7 @@ function getCircleCircumference(radius) {
  * Returns an average of two given numbers.
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  return value1 / 2 + value2 / 2;
 }
 
 /**

@@ -60,8 +60,9 @@ function getStringsLength(arr) {
  * Inserts the item into specified array at specified index
  */
 function insertItem(arr, item, index) {
-  return [...arr.slice(0, index), item, ...arr.slice(index)];
+  return arr.splice(index, 0, item);
 }
+
 
 /**
  * Returns the n first items of the specified array
@@ -238,8 +239,11 @@ function swapHeadAndTail(arr) {
   const head = arr.slice(0, half);
   const tail = arr.slice(Math.ceil(arr.length / 2));
 
-  return [...tail, ...(arr.length % 2 === 0 ? [] : arr[half]), ...head];
+  return arr.length % 2 === 0
+    ? [...tail, ...head]
+    : [...tail, arr[half], ...head];
 }
+
 
 module.exports = {
   findElement,
